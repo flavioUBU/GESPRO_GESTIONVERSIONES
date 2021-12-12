@@ -244,7 +244,7 @@ public class AddEditApiaryFragment extends Fragment implements AddEditApiaryCont
                         }
                     }
                 })
-                .ask();
+                .ask(getActivity());
         return false;
     }
 
@@ -256,7 +256,9 @@ public class AddEditApiaryFragment extends Fragment implements AddEditApiaryCont
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        PermissionManager.handleResult(requestCode, permissions, grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        PermissionManager.handleResult(this, requestCode, permissions, grantResults)
+
     }
 
     @Override
